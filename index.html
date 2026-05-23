@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shamshad Ansari - Creative Full-Stack Developer & UI/UX Designer Portfolio. Showcasing premium web experiences, Java engineering, and modern stack applications.">
+    <title>Shamshad Ansari | Full-Stack Developer & Designer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Particle Network Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-accent">&lt;</span>Shamshad<span class="logo-accent"> /&gt;</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-nav">Hire Me</a>
+                <a href="RESUME.pdf" class="btn-nav" download>Resume</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-container">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <a href="RESUME.pdf" class="mobile-link" download>Resume</a>
+            <a href="#contact" class="btn-nav mobile-btn">Hire Me</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-wrapper">
+                        <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Available for Opportunities</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Hi, I'm <br>
+                        <span class="gradient-text text-glow">Shamshad Ansari</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        I am a <span id="typing-text"></span><span class="typed-cursor">|</span>
+                    </h2>
+                    <p class="hero-description">
+                        An enthusiastic Full-Stack Developer and UI/UX Designer dedicated to crafting stunning, performant, and premium web applications. Specializing in the MERN Stack, Java engineering, and high-fidelity interactive user interfaces.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span> <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <span>Let's Talk</span> <i class="fa-regular fa-paper-plane"></i>
+                        </a>
+                        <a href="RESUME.pdf" class="btn btn-outline" download>
+                            <span>Download Resume</span> <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:shamshadansari43984@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="image-box-wrapper">
+                        <div class="glow-bg"></div>
+                        <div class="image-box">
+                            <img src="assets/profile.jpg" alt="Shamshad Ansari Portrait" class="profile-img">
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <i class="fa-solid fa-code text-cyan"></i>
+                            <div>
+                                <h4>MERN Stack</h4>
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fa-brands fa-java text-purple"></i>
+                            <div>
+                                <h4>Java Core</h4>
+                                <p>Advanced</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down-indicator">
+                <a href="#about" aria-label="Scroll Down">
+                    <div class="mouse-icon">
+                        <div class="wheel"></div>
+                    </div>
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">Get To Know Me</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-info-card glass-card">
+                        <h3 class="card-subtitle">A Passionate Engineer</h3>
+                        <p class="card-text">
+                            I am a creative full-stack web developer based in India, with a strong foundation in modern Javascript frameworks and Java core architectures. I love turning complex problems into elegant, responsive, and intuitive web solutions.
+                        </p>
+                        <p class="card-text">
+                            My journey began with deep curiosity in how the web functions, which led me to study the MERN stack, database design, and high-performance frontend interfaces. I specialize in building pixel-perfect applications that don't just look spectacular but run with absolute speed and reliability.
+                        </p>
+                        <div class="personal-info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Name</span>
+                                <span class="info-value">Shamshad Ansari</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span class="info-value"><a href="mailto:shamshadansari43984@gmail.com">shamshadansari...</a></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Availability</span>
+                                <span class="info-value">Freelance / Full-Time</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Resume</span>
+                                <span class="info-value"><a href="RESUME.pdf" download>Download PDF</a></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Specialty</span>
+                                <span class="info-value">Web & App Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-tabs-card glass-card">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="skills">Skills</button>
+                            <button class="tab-btn" data-tab="education">Education</button>
+                            <button class="tab-btn" data-tab="tools">Tools</button>
+                        </div>
+                        
+                        <div class="tab-contents">
+                            <!-- Skills Tab Content -->
+                            <div class="tab-pane active" id="skills">
+                                <div class="skills-list">
+                                    <div class="skill-group">
+                                        <span class="skill-name">Frontend (React, HTML5, CSS3, JS)</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="progress" style="width: 95%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-name">Backend (Node.js, Express)</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="progress" style="width: 88%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-name">Databases (MongoDB, MySQL)</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="progress" style="width: 85%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-name">Java SE & OOP Concepts</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="progress" style="width: 90%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pills-container">
+                                    <span class="pill">REST APIs</span>
+                                    <span class="pill">Git / GitHub</span>
+                                    <span class="pill">Data Structures</span>
+                                    <span class="pill">UI/UX Prototyping</span>
+                                    <span class="pill">Responsive Layouts</span>
+                                </div>
+                            </div>
+
+                            <!-- Education Tab Content -->
+                            <div class="tab-pane" id="education">
+                                <div class="timeline-compact">
+                                    <div class="timeline-compact-item">
+                                        <div class="compact-dot"></div>
+                                        <span class="compact-date">2023 - Present</span>
+                                        <h4 class="compact-title">Bachelor of Computer Applications (BCA)</h4>
+                                        <p class="compact-desc">Focus on software systems, web engineering, database architecture, and computer application algorithms.</p>
+                                    </div>
+                                    <div class="timeline-compact-item">
+                                        <div class="compact-dot"></div>
+                                        <span class="compact-date">2021 - 2023</span>
+                                        <h4 class="compact-title">Senior Secondary Education</h4>
+                                        <p class="compact-desc">Science and Mathematics stream with high academic standing.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tools Tab Content -->
+                            <div class="tab-pane" id="tools">
+                                <div class="tools-grid">
+                                    <div class="tool-item">
+                                        <i class="fa-solid fa-terminal text-cyan"></i>
+                                        <span>VS Code</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fa-brands fa-figma text-purple"></i>
+                                        <span>Figma</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fa-brands fa-npm text-red"></i>
+                                        <span>NPM</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fa-brands fa-git-alt text-orange"></i>
+                                        <span>Git & CLI</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fa-solid fa-server text-blue"></i>
+                                        <span>Postman</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <i class="fa-brands fa-docker text-cyan"></i>
+                                        <span>Docker</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="services-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">What I Offer</span>
+                    <h2 class="section-title">My Services</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-card">
+                        <div class="service-glow"></div>
+                        <div class="service-icon-box cyan-glow">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-desc">
+                            Crafting modular, optimized responsive web applications utilizing React, Node.js, and clean CSS code structure. Built for speed, premium animations, and search engine optimization.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card glass-card">
+                        <div class="service-glow"></div>
+                        <div class="service-icon-box purple-glow">
+                            <i class="fa-solid fa-crop-simple"></i>
+                        </div>
+                        <h3 class="service-title">UI/UX Interface Design</h3>
+                        <p class="service-desc">
+                            Designing premium dark and glassmorphic UI systems in Figma. Implementing modern user-flows, micro-interactions, responsive frameworks, and striking custom typography.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card glass-card">
+                        <div class="service-glow"></div>
+                        <div class="service-icon-box red-glow">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="service-title">Backend & APIs</h3>
+                        <p class="service-desc">
+                            Creating secure REST APIs, robust Express middleware, structural MongoDB databases, and object-oriented Java integrations for complex scalable logic.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">Showcasing Selected Works</span>
+                    <h2 class="section-title">Creative Portfolio</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Room Rent App -->
+                    <div class="project-card glass-card">
+                        <div class="project-image-box">
+                            <img src="assets/project_rental.png" alt="Room Rental Application Preview" class="project-img">
+                            <div class="project-overlay">
+                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Real-Time</span>
+                            </div>
+                            <h3 class="project-title">Room Rental Application</h3>
+                            <p class="project-desc">
+                                A dynamic dashboard to search rooms, manage bookings, and display real-time calendar availability indicating remaining active days.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Student Club -->
+                    <div class="project-card glass-card">
+                        <div class="project-image-box">
+                            <img src="assets/project_club.png" alt="Student Club Portal Preview" class="project-img">
+                            <div class="project-overlay">
+                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">MERN Stack</span>
+                                <span class="tag">CSS Grid</span>
+                                <span class="tag">Community</span>
+                            </div>
+                            <h3 class="project-title">Campus Hub & Hackathon Feed</h3>
+                            <p class="project-desc">
+                                A stunning neon-themed dashboard featuring chronological hackathon feeds, college event hubs, registration modules, and payment flows.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Zenith X Scrollytelling -->
+                    <div class="project-card glass-card">
+                        <div class="project-image-box">
+                            <img src="assets/project_zenith.png" alt="Zenith X Scrollytelling Preview" class="project-img">
+                            <div class="project-overlay">
+                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Framer Motion</span>
+                                <span class="tag">Premium</span>
+                            </div>
+                            <h3 class="project-title">Zenith X Audio Scrollytelling</h3>
+                            <p class="project-desc">
+                                An Awwwards-style immersive landing page featuring scroll-linked product assemblies, specs visualization, and sleek e-commerce animations.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TIMELINE SECTION -->
+        <section id="experience" class="timeline-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">My Milestones</span>
+                    <h2 class="section-title">Timeline & Education</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="main-timeline">
+                    <!-- Timeline Card 1 -->
+                    <div class="timeline-card-wrapper left">
+                        <div class="timeline-card glass-card">
+                            <div class="timeline-badge-year">2026</div>
+                            <h3 class="timeline-card-title">Creative Coding Excellence</h3>
+                            <span class="timeline-card-subtitle">Personal Milestones</span>
+                            <p class="timeline-card-desc">
+                                Created Zenith X scrollytelling and campus student systems. Gained deep appreciation for visual UI designs, hardware rendering acceleration, and beautiful animations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Card 2 -->
+                    <div class="timeline-card-wrapper right">
+                        <div class="timeline-card glass-card">
+                            <div class="timeline-badge-year">2025</div>
+                            <h3 class="timeline-card-title">MERN Stack Specialization</h3>
+                            <span class="timeline-card-subtitle">Full Stack Projects</span>
+                            <p class="timeline-card-desc">
+                                Built and launched modular real-time applications such as Room Rent and Cricket Score trackers, validating secure backend Express routing and complex schema architectures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Card 3 -->
+                    <div class="timeline-card-wrapper left">
+                        <div class="timeline-card glass-card">
+                            <div class="timeline-badge-year">2023</div>
+                            <h3 class="timeline-card-title">BCA Enrollment & OOP Study</h3>
+                            <span class="timeline-card-subtitle">Academic Path</span>
+                            <p class="timeline-card-desc">
+                                Enrolled in Bachelor of Computer Applications program. Mastered core concepts in Object-Oriented Programming using Java, Data Structures, and basic SQL.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">Get in Touch</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info glass-card">
+                        <h3 class="contact-sub-title">Contact Information</h3>
+                        <p class="contact-info-desc">
+                            Have an exciting project or job opportunity you'd like to collaborate on? Send me a message! I'm always looking forward to discussing new tech challenges and premium web works.
+                        </p>
+                        
+                        <div class="contact-details-list">
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:shamshadansari43984@gmail.com">shamshadansari43984@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>India (Available Remote)</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h4>Response Time</h4>
+                                    <p>Within 24 Hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-social-pills">
+                            <a href="https://github.com" target="_blank" class="contact-social-pill"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="https://linkedin.com" target="_blank" class="contact-social-pill"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container glass-card">
+                        <form id="portfolio-contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Your Email</label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Project Collaboration">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span>Send Message</span> <i class="fa-regular fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div id="form-feedback" class="form-feedback-message">
+                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you for reaching out, Shamshad will get back to you shortly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Shamshad Ansari. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <p>Designed with <i class="fa-solid fa-heart text-red"></i> &amp; Vanilla CSS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

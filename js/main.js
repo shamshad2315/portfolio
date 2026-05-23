@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Shamshad Ansari Portfolio - Interactive Scripting & Animations
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ==========================================
+       1. CUSTOM CURSOR
+       ========================================== */
+    const cursor = document.getElementById('custom-cursor');
+    const cursorDot = document.getElementById('custom-cursor-dot');
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    
+    // Track mouse coordinates
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Instant cursor dot position
+        if (cursorDot) {
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        }
+    });
+
+    // Animate outer cursor ring with smooth linear interpolation (Lerp)
+    function animateCursor() {
+        const easing = 0.15; // Speed factor of the outer ring following the dot
+        
+        cursorX += (mouseX - cursorX) * easing;
+        cursorY += (mouseY - cursorY) * easing;
+        
+        if (cursor) {
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+        }
+        
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effect expansions for links/buttons
+    const hoverElements = document.querySelectorAll('a, button, .tab-btn, .project-card, .contact-social-pill');
+    hoverElements.forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+            if (cursor) {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+                cursor.style.borderColor = 'var(--accent-cyan)';
+                cursor.style.backgroundColor = 'rgba(0, 240, 255, 0.05)';
+            }
+        });
+        elem.addEventListener('mouseleave', () => {
+            if (cursor) {
+                cursor.style.width = '24px';
+                cursor.style.height = '24px';
+                cursor.style.borderColor = 'rgba(0, 240, 255, 0.5)';
+                cursor.style.backgroundColor = 'transparent';
+            }
+        });
+    });
+
+
+    /* ==========================================
+       2. CANVAS PARTICLE NETWORK
+       ========================================== */
+    const canvas = document.getElementById('particle-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let connectionDistance = 110;
+        let maxParticles = 65;
+
+        // Auto adjust density for smaller screens
+        if (window.innerWidth < 768) {
+            maxParticles = 30;
+            connectionDistance = 80;
+        }
+
+        // Set Canvas dimensions
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Particle Constructor
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 240, 255, 0.35)' : 'rgba(157, 78, 221, 0.35)';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Wall boundary checking
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                // Subtle attraction to mouse
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 180) {
+                    this.x += dx * 0.003;
+                    this.y += dy * 0.003;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Initialize particle array
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        // Connect particles close to each other
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        const alpha = 1 - (distance / connectionDistance);
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${alpha * 0.12})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Animation Loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+
+
+    /* ==========================================
+       3. DYNAMIC TYPING EFFECT
+       ========================================== */
+    const typingSpan = document.getElementById('typing-text');
+    if (typingSpan) {
+        const phrases = ["Full-Stack Developer", "Java Developer", "UI/UX Builder", "Creative Problem Solver"];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIdx];
+            
+            if (isDeleting) {
+                typingSpan.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+                typingSpeed = 50; // Deletion speed
+            } else {
+                typingSpan.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+                typingSpeed = 120; // Normal typing speed
+            }
+
+            // State changes
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                // Pause at completion
+                typingSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typingSpeed = 300; // Delay before next text
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+        
+        // Start typing
+        setTimeout(type, 1000);
+    }
+
+
+    /* ==========================================
+       4. DYNAMIC NAVIGATION HIGHLIGHT ON SCROLL
+       ========================================== */
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu-container a.mobile-link');
+    const header = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+        // Sticky Navbar effect
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Active link highlight
+        let currentSectionId = '';
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop - 120;
+            const sectionHeight = sec.clientHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSectionId = sec.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+
+    /* ==========================================
+       5. MOBILE MENU OVERLAY TOGGLING
+       ========================================== */
+    const mobileToggleBtn = document.querySelector('.mobile-nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-btn');
+
+    if (mobileToggleBtn && mobileMenu) {
+        // Toggle Open/Close state
+        mobileToggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            
+            // Hamburger to X state
+            const bars = mobileToggleBtn.querySelectorAll('.bar');
+            if (mobileMenu.classList.contains('open')) {
+                bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+
+        // Close when clicking mobile links
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const bars = mobileToggleBtn.querySelectorAll('.bar');
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            });
+        });
+    }
+
+
+    /* ==========================================
+       6. INTERACTIVE ABOUT SECTIONS TABS
+       ========================================== */
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active classes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+
+            // Set active states
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            const targetPane = document.getElementById(tabId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+
+
+    /* ==========================================
+       7. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
+       ========================================== */
+    const revealSections = document.querySelectorAll('.scroll-reveal');
+    
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Trigger once
+                }
+            });
+        }, {
+            threshold: 0.15, // Trigger when 15% of section is visible
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealSections.forEach(sec => {
+            revealObserver.observe(sec);
+        });
+    } else {
+        // Fallback for older browsers
+        revealSections.forEach(sec => sec.classList.add('active'));
+    }
+
+
+    /* ==========================================
+       8. CONTACT FORM DECORATIVE SUBMISSION
+       ========================================== */
+    const contactForm = document.getElementById('portfolio-contact-form');
+    const feedbackBox = document.getElementById('form-feedback');
+
+    if (contactForm && feedbackBox) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page reload
+            
+            // Visual Submission Action
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            const btnSpan = submitBtn.querySelector('span');
+            const btnIcon = submitBtn.querySelector('i');
+            
+            if (btnSpan && btnIcon) {
+                btnSpan.textContent = 'Sending...';
+                btnIcon.className = 'fa-solid fa-circle-notch fa-spin';
+                submitBtn.style.pointerEvents = 'none';
+                submitBtn.style.opacity = '0.7';
+            }
+
+            // Simulate server network latency
+            setTimeout(() => {
+                // Show Success Screen
+                feedbackBox.classList.add('show');
+                
+                // Reset form values
+                contactForm.reset();
+
+                // Revert submit button after a period
+                setTimeout(() => {
+                    feedbackBox.classList.remove('show');
+                    if (btnSpan && btnIcon) {
+                        btnSpan.textContent = 'Send Message';
+                        btnIcon.className = 'fa-regular fa-paper-plane';
+                        submitBtn.style.pointerEvents = 'auto';
+                        submitBtn.style.opacity = '1';
+                    }
+                }, 5000);
+
+            }, 1800);
+        });
+    }
+});
