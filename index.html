@@ -547,6 +547,22 @@
 
     </main>
 
+    <!-- Messages Modal (owner view) -->
+    <div id="messages-modal" class="messages-modal" aria-hidden="true">
+        <div class="messages-modal-inner">
+            <button id="close-messages" class="close-messages" aria-label="Close">&times;</button>
+            <h3>Saved Messages</h3>
+            <div id="messages-list" class="messages-list">
+                <!-- messages injected here -->
+            </div>
+            <div class="messages-modal-actions">
+                <button id="clear-messages" class="btn btn-outline">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="view-messages-btn" class="view-messages-btn" title="View saved messages">Messages</button>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">

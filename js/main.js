@@ -41,6 +41,67 @@ document.addEventListener('DOMContentLoaded', () => {
         
         requestAnimationFrame(animateCursor);
     }
+
+    /* ==========================================
+       9. MESSAGES ADMIN VIEW (localStorage)
+       ========================================== */
+    const viewMessagesBtn = document.getElementById('view-messages-btn');
+    const messagesModal = document.getElementById('messages-modal');
+    const messagesList = document.getElementById('messages-list');
+    const closeMessagesBtn = document.getElementById('close-messages');
+    const clearMessagesBtn = document.getElementById('clear-messages');
+
+    function renderMessages() {
+        if (!messagesList) return;
+        let items = [];
+        try { items = JSON.parse(localStorage.getItem('portfolioMessages') || '[]'); } catch (e) { items = []; }
+        messagesList.innerHTML = '';
+        if (!items.length) {
+            messagesList.innerHTML = '<p>No saved messages.</p>';
+            return;
+        }
+
+        items.forEach(msg => {
+            const div = document.createElement('div');
+            div.className = 'message-item';
+            const title = document.createElement('h4');
+            title.textContent = `${msg.subject} — ${msg.name} (${msg.email || 'no email'})`;
+            const time = document.createElement('small');
+            time.style.display = 'block';
+            time.style.opacity = '0.7';
+            time.textContent = new Date(msg.timestamp).toLocaleString();
+            const body = document.createElement('p');
+            body.textContent = msg.message || '';
+            div.appendChild(title);
+            div.appendChild(time);
+            div.appendChild(body);
+            messagesList.appendChild(div);
+        });
+    }
+
+    if (viewMessagesBtn && messagesModal) {
+        viewMessagesBtn.addEventListener('click', () => {
+            messagesModal.setAttribute('aria-hidden', 'false');
+            messagesModal.classList.add('active');
+            renderMessages();
+        });
+    }
+
+    if (closeMessagesBtn && messagesModal) {
+        closeMessagesBtn.addEventListener('click', () => {
+            messagesModal.setAttribute('aria-hidden', 'true');
+            messagesModal.classList.remove('active');
+        });
+    }
+
+    if (clearMessagesBtn) {
+        clearMessagesBtn.addEventListener('click', () => {
+            if (confirm('Clear all saved messages? This cannot be undone.')) {
+                localStorage.removeItem('portfolioMessages');
+                renderMessages();
+            }
+        });
+    }
     animateCursor();
 
     // Hover effect expansions for links/buttons
@@ -340,36 +401,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================
-       8. CONTACT FORM DECORATIVE SUBMISSION
+       8. CONTACT FORM: deliver, store & admin view
+       - Opens user's mail client with message (mailto)
+       - Saves submission locally in `localStorage` so owner can view
+       - Shows existing visual feedback UI
        ========================================== */
     const contactForm = document.getElementById('portfolio-contact-form');
     const feedbackBox = document.getElementById('form-feedback');
 
+    function saveMessageLocally(msgObj) {
+        try {
+            const existing = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+            existing.unshift(msgObj);
+            // keep last 200 messages max
+            localStorage.setItem('portfolioMessages', JSON.stringify(existing.slice(0, 200)));
+        } catch (err) {
+            console.error('Could not save message locally', err);
+        }
+    }
+
+    function openMailClient(email, subject, body) {
+        const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // navigate to mailto to trigger user's mail app
+        window.location.href = mailto;
+    }
+
     if (contactForm && feedbackBox) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent page reload
-            
+
+            const name = (contactForm.querySelector('#name') || {}).value || '';
+            const email = (contactForm.querySelector('#email') || {}).value || '';
+            const subject = (contactForm.querySelector('#subject') || {}).value || 'Portfolio Contact';
+            const message = (contactForm.querySelector('#message') || {}).value || '';
+
             // Visual Submission Action
             const submitBtn = contactForm.querySelector('.btn-submit');
-            const btnSpan = submitBtn.querySelector('span');
-            const btnIcon = submitBtn.querySelector('i');
-            
+            const btnSpan = submitBtn ? submitBtn.querySelector('span') : null;
+            const btnIcon = submitBtn ? submitBtn.querySelector('i') : null;
+
             if (btnSpan && btnIcon) {
-                btnSpan.textContent = 'Sending...';
+                btnSpan.textContent = 'Preparing...';
                 btnIcon.className = 'fa-solid fa-circle-notch fa-spin';
                 submitBtn.style.pointerEvents = 'none';
                 submitBtn.style.opacity = '0.7';
             }
 
-            // Simulate server network latency
+            const timestamp = new Date().toISOString();
+            const msgObj = { name, email, subject, message, timestamp };
+
+            // Save locally for owner to review
+            saveMessageLocally(msgObj);
+
+            // Open user's mail client pre-filled (so messages go to your inbox)
+            const ownerEmail = 'shamshadansari43984@gmail.com';
+            const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+            // small timeout to let UI update before opening mail client
             setTimeout(() => {
-                // Show Success Screen
+                openMailClient(ownerEmail, subject, body);
+            }, 600);
+
+            // Show Success Screen and reset
+            setTimeout(() => {
                 feedbackBox.classList.add('show');
-                
-                // Reset form values
                 contactForm.reset();
 
-                // Revert submit button after a period
+                // Revert submit button after a short period
                 setTimeout(() => {
                     feedbackBox.classList.remove('show');
                     if (btnSpan && btnIcon) {
@@ -378,9 +475,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         submitBtn.style.pointerEvents = 'auto';
                         submitBtn.style.opacity = '1';
                     }
-                }, 5000);
-
-            }, 1800);
+                }, 3000);
+            }, 900);
         });
     }
 });
