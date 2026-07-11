@@ -5,21 +5,90 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================
+       0. 3D FLOATING TECH ICONS BACKGROUND
+       ========================================== */
+    const techScene = document.getElementById('tech-3d-scene');
+    if (techScene) {
+        // All tech icons used in the portfolio
+        const techIcons = [
+            // Java - orange
+            { icon: 'fa-brands fa-java',        color: '#f89820', glow: 'rgba(248,152,32,0.6)',  count: 4 },
+            // Spring Boot - green
+            { icon: 'fa-solid fa-leaf',          color: '#6db33f', glow: 'rgba(109,179,63,0.6)', count: 4 },
+            // Docker - blue
+            { icon: 'fa-brands fa-docker',       color: '#2496ed', glow: 'rgba(36,150,237,0.6)', count: 3 },
+            // GitHub - white/silver
+            { icon: 'fa-brands fa-github',       color: '#e2e8f0', glow: 'rgba(226,232,240,0.4)', count: 3 },
+            // Linux - yellow
+            { icon: 'fa-brands fa-linux',        color: '#f5c518', glow: 'rgba(245,197,24,0.5)', count: 2 },
+            // AWS - orange-red
+            { icon: 'fa-brands fa-aws',          color: '#ff9900', glow: 'rgba(255,153,0,0.5)',  count: 2 },
+            // Git - red
+            { icon: 'fa-brands fa-git-alt',      color: '#f05032', glow: 'rgba(240,80,50,0.5)',  count: 2 },
+            // Database / MySQL - cyan
+            { icon: 'fa-solid fa-database',      color: '#00aeff', glow: 'rgba(0,174,255,0.5)',  count: 3 },
+            // API / Link - purple
+            { icon: 'fa-solid fa-link',          color: '#9d4edd', glow: 'rgba(157,78,221,0.5)', count: 2 },
+            // Cloud
+            { icon: 'fa-solid fa-cloud',         color: '#60a5fa', glow: 'rgba(96,165,250,0.4)', count: 2 },
+            // Shield / Security (JWT)
+            { icon: 'fa-solid fa-shield-halved', color: '#34d399', glow: 'rgba(52,211,153,0.5)', count: 2 },
+            // Code
+            { icon: 'fa-solid fa-code',          color: '#a78bfa', glow: 'rgba(167,139,250,0.4)', count: 2 },
+        ];
+
+        const rand = (min, max) => Math.random() * (max - min) + min;
+
+        techIcons.forEach(tech => {
+            for (let j = 0; j < tech.count; j++) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'tech-icon-float';
+
+                // Random position across full viewport
+                const topPct  = rand(3, 92);
+                const leftPct = rand(2, 96);
+                const sizePx  = rand(2.2, 4.8).toFixed(1);
+                const dur     = rand(7, 16).toFixed(1);
+                const spin    = rand(8, 22).toFixed(1);
+                const selfSpin = rand(5, 14).toFixed(1);
+                const delay   = `-${rand(0, 15).toFixed(1)}s`;
+                const opacity = rand(0.10, 0.22).toFixed(2);
+
+                wrapper.style.top  = `${topPct}%`;
+                wrapper.style.left = `${leftPct}%`;
+                wrapper.style.setProperty('--dur',      `${dur}s`);
+                wrapper.style.setProperty('--spin',     `${spin}s`);
+                wrapper.style.setProperty('--selfspin', `${selfSpin}s`);
+                wrapper.style.setProperty('--delay',    delay);
+                wrapper.style.setProperty('--size',     `${sizePx}rem`);
+                wrapper.style.setProperty('--color',    tech.color);
+                wrapper.style.setProperty('--glow',     tech.glow);
+                wrapper.style.setProperty('--opacity',  opacity);
+
+                const icon = document.createElement('i');
+                icon.className = tech.icon;
+                wrapper.appendChild(icon);
+                techScene.appendChild(wrapper);
+            }
+        });
+    }
+
+    /* ==========================================
        1. CUSTOM CURSOR
        ========================================== */
     const cursor = document.getElementById('custom-cursor');
     const cursorDot = document.getElementById('custom-cursor-dot');
-    
+
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;
     let cursorY = 0;
-    
+
     // Track mouse coordinates
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        
+
         // Instant cursor dot position
         if (cursorDot) {
             cursorDot.style.left = `${mouseX}px`;
@@ -30,15 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate outer cursor ring with smooth linear interpolation (Lerp)
     function animateCursor() {
         const easing = 0.15; // Speed factor of the outer ring following the dot
-        
+
         cursorX += (mouseX - cursorX) * easing;
         cursorY += (mouseY - cursorY) * easing;
-        
+
         if (cursor) {
             cursor.style.left = `${cursorX}px`;
             cursor.style.top = `${cursorY}px`;
         }
-        
+
         requestAnimationFrame(animateCursor);
     }
 
@@ -122,6 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor.style.borderColor = 'rgba(0, 240, 255, 0.5)';
                 cursor.style.backgroundColor = 'transparent';
             }
+        });
+    });
+
+    // Glassmorphic Build Card Mouse Gradient Follow Effect
+    const buildCards = document.querySelectorAll('.build-card');
+    buildCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
 
@@ -220,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Animation Loop
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
@@ -246,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function type() {
             const currentPhrase = phrases[phraseIdx];
-            
+
             if (isDeleting) {
                 typingSpan.textContent = currentPhrase.substring(0, charIdx - 1);
                 charIdx--;
@@ -270,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(type, typingSpeed);
         }
-        
+
         // Start typing
         setTimeout(type, 1000);
     }
@@ -323,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Toggle Open/Close state
         mobileToggleBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
-            
+
             // Hamburger to X state
             const bars = mobileToggleBtn.querySelectorAll('.bar');
             if (mobileMenu.classList.contains('open')) {
@@ -377,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
        7. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
        ========================================== */
     const revealSections = document.querySelectorAll('.scroll-reveal');
-    
+
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -420,14 +501,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function openMailClient(email, subject, body) {
-        const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        // navigate to mailto to trigger user's mail app
-        window.location.href = mailto;
-    }
-
+    // Removed openMailClient function and replaced submit handling with fetch to backend endpoint
     if (contactForm && feedbackBox) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Prevent page reload
 
             const name = (contactForm.querySelector('#name') || {}).value || '';
@@ -453,13 +529,17 @@ document.addEventListener('DOMContentLoaded', () => {
             // Save locally for owner to review
             saveMessageLocally(msgObj);
 
-            // Open user's mail client pre-filled (so messages go to your inbox)
-            const ownerEmail = 'shamshadansari43984@gmail.com';
-            const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-            // small timeout to let UI update before opening mail client
-            setTimeout(() => {
-                openMailClient(ownerEmail, subject, body);
-            }, 600);
+            // Send message to backend endpoint
+            try {
+                const response = await fetch('/send-message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(msgObj)
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+            } catch (err) {
+                console.error('Failed to send message to server:', err);
+            }
 
             // Show Success Screen and reset
             setTimeout(() => {

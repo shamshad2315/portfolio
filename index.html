@@ -1,23 +1,31 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shamshad Ansari - Creative Full-Stack Developer & UI/UX Designer Portfolio. Showcasing premium web experiences, Java engineering, and modern stack applications.">
+    <meta name="description"
+        content="Shamshad Ansari - Creative Full-Stack Developer & UI/UX Designer Portfolio. Showcasing premium web experiences, Java engineering, and modern stack applications.">
     <title>Shamshad Ansari | Full-Stack Developer & Designer</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Particle Network Background -->
     <canvas id="particle-canvas"></canvas>
+
+    <!-- 3D Floating Tech Icons Background (populated by JS) -->
+    <div class="tech-3d-scene" id="tech-3d-scene" aria-hidden="true"></div>
 
     <!-- Custom Cursor -->
     <div id="custom-cursor"></div>
@@ -39,7 +47,6 @@
             </nav>
             <div class="nav-actions">
                 <a href="#contact" class="btn-nav">Hire Me</a>
-                <a href="RESUME.pdf" class="btn-nav" download>Resume</a>
                 <button class="mobile-nav-toggle" aria-label="Toggle Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -48,6 +55,7 @@
             </div>
         </div>
     </header>
+
 
     <!-- Mobile Nav Menu Overlay -->
     <div class="mobile-menu-overlay">
@@ -58,7 +66,6 @@
             <a href="#projects" class="mobile-link">Projects</a>
             <a href="#experience" class="mobile-link">Experience</a>
             <a href="#contact" class="mobile-link">Contact</a>
-            <a href="RESUME.pdf" class="mobile-link" download>Resume</a>
             <a href="#contact" class="btn-nav mobile-btn">Hire Me</a>
         </div>
     </div>
@@ -74,14 +81,20 @@
                         <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Available for Opportunities</span>
                     </div>
                     <h1 class="hero-title">
-                        Hi, I'm <br>
-                        <span class="gradient-text text-glow">Shamshad Ansari</span>
+                        Hi 👋 <br>
+                        <span class="gradient-text text-glow">I'm Shamshad Ansari</span>
                     </h1>
                     <h2 class="hero-subtitle">
                         I am a <span id="typing-text"></span><span class="typed-cursor">|</span>
                     </h2>
                     <p class="hero-description">
-                        An enthusiastic Full-Stack Developer and UI/UX Designer dedicated to crafting stunning, performant, and premium web applications. Specializing in the MERN Stack, Java engineering, and high-fidelity interactive user interfaces.
+                        Passionate Java Backend Developer specializing in Java, Spring Boot, RESTful APIs,
+                        MySQL, and Microservices. Experienced in designing scalable, secure, and high-performance
+                        backend applications with clean architecture and best coding practices. Familiar with Docker,
+                        Git, GitHub, Maven, JUnit, Postman, JWT Authentication, Swagger/OpenAPI, and CI/CD workflows
+                        using GitHub Actions. Continuously expanding my expertise in system design, caching with Redis,
+                        message queues, cloud deployment, containerization, and DevOps practices while strengthening my
+                        problem-solving skills through Data Structures and Algorithms.
                     </p>
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary">
@@ -90,17 +103,17 @@
                         <a href="#contact" class="btn btn-outline">
                             <span>Let's Talk</span> <i class="fa-regular fa-paper-plane"></i>
                         </a>
-                        <a href="RESUME.pdf" class="btn btn-outline" download>
-                            <span>Download Resume</span> <i class="fa-solid fa-download"></i>
-                        </a>
                     </div>
                     <div class="hero-socials">
-                        <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="mailto:shamshadansari43984@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:shamshadansari43984@gmail.com" class="social-icon" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="hero-visual">
                     <div class="image-box-wrapper">
                         <div class="glow-bg"></div>
@@ -110,15 +123,15 @@
                         <div class="floating-badge badge-1">
                             <i class="fa-solid fa-code text-cyan"></i>
                             <div>
-                                <h4>MERN Stack</h4>
-                                <p>Expert</p>
+                                <h4> REST APIs </h4>
+                                <p>Advanced</p>
                             </div>
                         </div>
                         <div class="floating-badge badge-2">
                             <i class="fa-brands fa-java text-purple"></i>
                             <div>
-                                <h4>Java Core</h4>
-                                <p>Advanced</p>
+                                <h4> Java</h4>
+                                <p>Backend Development</p>
                             </div>
                         </div>
                     </div>
@@ -144,131 +157,181 @@
                     <div class="header-line"></div>
                 </div>
 
-                <div class="about-grid">
-                    <div class="about-info-card glass-card">
-                        <h3 class="card-subtitle">A Passionate Engineer</h3>
-                        <p class="card-text">
-                            I am a creative full-stack web developer based in India, with a strong foundation in modern Javascript frameworks and Java core architectures. I love turning complex problems into elegant, responsive, and intuitive web solutions.
+                <div class="about-grid about-two-column">
+                    <!-- LEFT COLUMN: About Me -->
+                    <div class="about-left-card glass-card">
+                        <div class="about-me-badge">
+                            <i class="fa-regular fa-user"></i> About Me
+                        </div>
+                        <h3 class="about-headline">
+                            Backend Developer<br>
+                            building <span class="gradient-text">scalable solutions.</span>
+                        </h3>
+                        <p class="about-desc">
+                            I am a Java Backend Developer passionate about building scalable, secure, and
+                            high-performance applications using Spring Boot, REST APIs, and MySQL. I enjoy solving
+                            real-world problems, writing clean code, and exploring modern technologies like Docker,
+                            Microservices, Redis, CI/CD and Cloud Deployment.
                         </p>
-                        <p class="card-text">
-                            My journey began with deep curiosity in how the web functions, which led me to study the MERN stack, database design, and high-performance frontend interfaces. I specialize in building pixel-perfect applications that don't just look spectacular but run with absolute speed and reliability.
-                        </p>
+
                         <div class="personal-info-grid">
                             <div class="info-item">
-                                <span class="info-label">Name</span>
-                                <span class="info-value">Shamshad Ansari</span>
+                                <i class="fa-solid fa-location-dot text-cyan"></i>
+                                <div>
+                                    <span class="info-label">Location</span>
+                                    <span class="info-value">India</span>
+                                </div>
                             </div>
                             <div class="info-item">
-                                <span class="info-label">Email</span>
-                                <span class="info-value"><a href="mailto:shamshadansari43984@gmail.com">shamshadansari...</a></span>
+                                <i class="fa-solid fa-graduation-cap text-purple"></i>
+                                <div>
+                                    <span class="info-label">Education</span>
+                                    <span class="info-value">Bachelor of Computer Applications | 2024 - 2027</span>
+                                </div>
                             </div>
                             <div class="info-item">
-                                <span class="info-label">Availability</span>
-                                <span class="info-value">Freelance / Full-Time</span>
+                                <i class="fa-regular fa-envelope text-blue"></i>
+                                <div>
+                                    <span class="info-label">Email</span>
+                                    <span class="info-value">shamshadansari43984@gmail.com</span>
+                                </div>
                             </div>
                             <div class="info-item">
-                                <span class="info-label">Resume</span>
-                                <span class="info-value"><a href="RESUME.pdf" download>Download PDF</a></span>
+                                <i class="fa-solid fa-briefcase text-purple"></i>
+                                <div>
+                                    <span class="info-label">Experience</span>
+                                    <span class="info-value">Fresher</span>
+                                </div>
                             </div>
                             <div class="info-item">
-                                <span class="info-label">Specialty</span>
-                                <span class="info-value">Web & App Engineering</span>
+                                <i class="fa-regular fa-calendar text-cyan"></i>
+                                <div>
+                                    <span class="info-label">Availability</span>
+                                    <span class="info-value">Freelance / Full-Time</span>
+                                </div>
                             </div>
+                            <div class="info-item">
+                                <i class="fa-solid fa-code text-cyan"></i>
+                                <div>
+                                    <span class="info-label">Specialization</span>
+                                    <span class="info-value">Java Backend Development</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-buttons">
+                            <a href="https://github.com/shamshadansari" target="_blank" class="social-btn"
+                                aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://linkedin.com/in/shamshadansari" target="_blank" class="social-btn"
+                                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="mailto:shamshadansari43984@gmail.com" class="social-btn" aria-label="Email"><i
+                                    class="fa-regular fa-envelope"></i></a>
                         </div>
                     </div>
 
-                    <div class="about-tabs-card glass-card">
-                        <div class="tab-buttons">
-                            <button class="tab-btn active" data-tab="skills">Skills</button>
-                            <button class="tab-btn" data-tab="education">Education</button>
-                            <button class="tab-btn" data-tab="tools">Tools</button>
+                    <!-- RIGHT COLUMN: Java Backend -->
+                    <div class="java-backend-card glass-card">
+                        <div class="java-backend-badge">
+                            <i class="fa-brands fa-java"></i> Java Backend
                         </div>
-                        
-                        <div class="tab-contents">
-                            <!-- Skills Tab Content -->
-                            <div class="tab-pane active" id="skills">
-                                <div class="skills-list">
-                                    <div class="skill-group">
-                                        <span class="skill-name">Frontend (React, HTML5, CSS3, JS)</span>
-                                        <div class="skill-progress-bar">
-                                            <div class="progress" style="width: 95%;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-group">
-                                        <span class="skill-name">Backend (Node.js, Express)</span>
-                                        <div class="skill-progress-bar">
-                                            <div class="progress" style="width: 88%;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-group">
-                                        <span class="skill-name">Databases (MongoDB, MySQL)</span>
-                                        <div class="skill-progress-bar">
-                                            <div class="progress" style="width: 85%;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-group">
-                                        <span class="skill-name">Java SE & OOP Concepts</span>
-                                        <div class="skill-progress-bar">
-                                            <div class="progress" style="width: 90%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pills-container">
-                                    <span class="pill">REST APIs</span>
-                                    <span class="pill">Git / GitHub</span>
-                                    <span class="pill">Data Structures</span>
-                                    <span class="pill">UI/UX Prototyping</span>
-                                    <span class="pill">Responsive Layouts</span>
+                        <h3 class="java-backend-headline">
+                            <span class="text-cyan">Spring Boot</span><br>
+                            & <span class="gradient-text">Microservices</span>
+                        </h3>
+                        <p class="java-backend-desc">
+                            Experienced in building robust, production-grade Java backend systems. Specialized in Spring Boot ecosystem, RESTful APIs, enterprise-grade architectures, and modern cloud-native applications.
+                        </p>
+
+                        <div class="java-tech-stack">
+                            <div class="tech-category">
+                                <h4 class="tech-cat-title"><i class="fa-solid fa-layer-group text-cyan"></i> Core Frameworks</h4>
+                                <div class="tech-pills">
+                                    <span class="tech-pill">Spring Boot</span>
+                                    <span class="tech-pill">Spring MVC</span>
+                                    <span class="tech-pill">Spring Security</span>
+                                    <span class="tech-pill">Spring Data JPA</span>
                                 </div>
                             </div>
 
-                            <!-- Education Tab Content -->
-                            <div class="tab-pane" id="education">
-                                <div class="timeline-compact">
-                                    <div class="timeline-compact-item">
-                                        <div class="compact-dot"></div>
-                                        <span class="compact-date">2023 - Present</span>
-                                        <h4 class="compact-title">Bachelor of Computer Applications (BCA)</h4>
-                                        <p class="compact-desc">Focus on software systems, web engineering, database architecture, and computer application algorithms.</p>
-                                    </div>
-                                    <div class="timeline-compact-item">
-                                        <div class="compact-dot"></div>
-                                        <span class="compact-date">2021 - 2023</span>
-                                        <h4 class="compact-title">Senior Secondary Education</h4>
-                                        <p class="compact-desc">Science and Mathematics stream with high academic standing.</p>
-                                    </div>
+                            <div class="tech-category">
+                                <h4 class="tech-cat-title"><i class="fa-solid fa-network-wired text-purple"></i> API & Architecture</h4>
+                                <div class="tech-pills">
+                                    <span class="tech-pill">REST APIs</span>
+                                    <span class="tech-pill">Microservices</span>
+                                    <span class="tech-pill">JWT Auth</span>
+                                    <span class="tech-pill">Swagger/OpenAPI</span>
                                 </div>
                             </div>
 
-                            <!-- Tools Tab Content -->
-                            <div class="tab-pane" id="tools">
-                                <div class="tools-grid">
-                                    <div class="tool-item">
-                                        <i class="fa-solid fa-terminal text-cyan"></i>
-                                        <span>VS Code</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <i class="fa-brands fa-figma text-purple"></i>
-                                        <span>Figma</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <i class="fa-brands fa-npm text-red"></i>
-                                        <span>NPM</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <i class="fa-brands fa-git-alt text-orange"></i>
-                                        <span>Git & CLI</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <i class="fa-solid fa-server text-blue"></i>
-                                        <span>Postman</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <i class="fa-brands fa-docker text-cyan"></i>
-                                        <span>Docker</span>
-                                    </div>
+                            <div class="tech-category">
+                                <h4 class="tech-cat-title"><i class="fa-solid fa-database text-cyan"></i> Data & Caching</h4>
+                                <div class="tech-pills">
+                                    <span class="tech-pill">MySQL</span>
+                                    <span class="tech-pill">PostgreSQL</span>
+                                    <span class="tech-pill">MongoDB</span>
+                                    <span class="tech-pill">Redis</span>
                                 </div>
                             </div>
+
+                            <div class="tech-category">
+                                <h4 class="tech-cat-title"><i class="fa-solid fa-box text-orange"></i> Build & Deploy</h4>
+                                <div class="tech-pills">
+                                    <span class="tech-pill">Maven</span>
+                                    <span class="tech-pill">Docker</span>
+                                    <span class="tech-pill">Kubernetes</span>
+                                    <span class="tech-pill">CI/CD</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-category">
+                                <h4 class="tech-cat-title"><i class="fa-solid fa-wrench text-red"></i> Tools & Testing</h4>
+                                <div class="tech-pills">
+                                    <span class="tech-pill">Postman</span>
+                                    <span class="tech-pill">JUnit</span>
+                                    <span class="tech-pill">Mockito</span>
+                                    <span class="tech-pill">IntelliJ IDEA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats Bar -->
+                <div class="about-stats-bar glass-card">
+                    <div class="stat-item">
+                        <div class="stat-icon-box cyan-glow">
+                            <i class="fa-regular fa-folder-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">20+</h3>
+                            <p class="stat-label">Projects Completed</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box purple-glow">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">300+</h3>
+                            <p class="stat-label">DSA Problems Solved</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box blue-glow">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">30+</h3>
+                            <p class="stat-label">GitHub Repositories</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box green-glow">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">100%</h3>
+                            <p class="stat-label">Passion for Learning</p>
                         </div>
                     </div>
                 </div>
@@ -280,48 +343,98 @@
         <section id="services" class="services-section scroll-reveal">
             <div class="container">
                 <div class="section-header">
-                    <span class="sub-heading">What I Offer</span>
-                    <h2 class="section-title">My Services</h2>
+                    <span class="sub-heading status-badge">🟢 Currently Building Portfolio API v2</span>
+                    <h2 class="section-title gradient-text">My Services</h2>
                     <div class="header-line"></div>
+                    <p class="section-desc">I offer modern backend services, secure API design, cloud deployment support, and performance-focused development for your next project.</p>
                 </div>
 
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="service-card glass-card">
-                        <div class="service-glow"></div>
-                        <div class="service-icon-box cyan-glow">
-                            <i class="fa-solid fa-code"></i>
+                <div class="build-grid">
+                    <!-- Full Width Card: Java Backend -->
+                    <div class="build-card full-width glass-card cyan-theme" id="card-java">
+                        <div class="floating-logos">
+                            <span class="float-logo logo-1">☕</span>
+                            <span class="float-logo logo-2">🍃</span>
+                            <span class="float-logo logo-3">🐳</span>
+                            <span class="float-logo logo-4">🗄️</span>
                         </div>
-                        <h3 class="service-title">Web Development</h3>
-                        <p class="service-desc">
-                            Crafting modular, optimized responsive web applications utilizing React, Node.js, and clean CSS code structure. Built for speed, premium animations, and search engine optimization.
-                        </p>
+                        <div class="build-content">
+                            <div class="build-info">
+                                <h3 class="build-title">Java Backend</h3>
+                                <p class="build-desc">Building scalable backend systems with robust architecture.</p>
+                                <div class="build-tech">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">Hibernate</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <div class="build-footer">
+                                    <span class="build-stat">20+ Projects</span>
+                                    <a class="build-cta" href="#contact">Learn More <span class="cta-arrow">→</span></a>
+                                </div>
+                            </div>
+                            <div class="build-preview glass-panel">
+                                <div class="window-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <pre class="code-block"><code><span class="keyword">@RestController</span>
+<span class="keyword">@RequestMapping</span>(<span class="string">"/api/projects"</span>)
+<span class="keyword">public class</span> <span class="class-name">ProjectController</span> {
+
+    <span class="keyword">@GetMapping</span>
+    <span class="keyword">public</span> List&lt;Project&gt; <span class="method">getProjects</span>() {
+        <span class="keyword">return</span> service.findAll();
+    }
+}</code></pre>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Service 2 -->
-                    <div class="service-card glass-card">
-                        <div class="service-glow"></div>
-                        <div class="service-icon-box purple-glow">
-                            <i class="fa-solid fa-crop-simple"></i>
+                    <!-- Half Width Card: REST API -->
+                    <div class="build-card half-width glass-card purple-theme" id="card-api">
+                        <div class="build-info">
+                            <h3 class="build-title">REST API</h3>
+                            <p class="build-desc">Designing secure, scalable, and well-documented APIs.</p>
+                            <div class="build-tech">
+                                <span class="tech-tag">REST</span>
+                                <span class="tech-tag">JWT</span>
+                                <span class="tech-tag">Swagger</span>
+                            </div>
+                            <div class="build-preview glass-panel mini-preview">
+                                <div class="api-request">
+                                    <span class="method-get">GET</span> /api/projects
+                                </div>
+                                <pre class="code-block json-block"><code>{
+  <span class="string">"name"</span>: <span class="string">"Portfolio"</span>,
+  <span class="string">"status"</span>: <span class="string">"Running"</span>
+}</code></pre>
+                            </div>
                         </div>
-                        <h3 class="service-title">UI/UX Interface Design</h3>
-                        <p class="service-desc">
-                            Designing premium dark and glassmorphic UI systems in Figma. Implementing modern user-flows, micro-interactions, responsive frameworks, and striking custom typography.
-                        </p>
                     </div>
 
-                    <!-- Service 3 -->
-                    <div class="service-card glass-card">
-                        <div class="service-glow"></div>
-                        <div class="service-icon-box red-glow">
-                            <i class="fa-solid fa-gears"></i>
+                    <!-- Half Width Card: DevOps -->
+                    <div class="build-card half-width glass-card blue-theme" id="card-devops">
+                        <div class="build-info">
+                            <h3 class="build-title">DevOps & Cloud</h3>
+                            <p class="build-desc">Streamlining deployment and cloud infrastructure.</p>
+                            <div class="build-tech">
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">CI/CD</span>
+                            </div>
+                            <div class="build-preview glass-panel mini-preview terminal-preview">
+                                <div class="terminal-line"><span class="prompt">$</span> docker compose up</div>
+                                <div class="terminal-line output">✔ Container mysql-db   Started</div>
+                                <div class="terminal-line output">✔ Container redis      Started</div>
+                                <div class="terminal-line output">✔ Container spring-app Started</div>
+                                <div class="terminal-line typing-cursor">_</div>
+                            </div>
                         </div>
-                        <h3 class="service-title">Backend & APIs</h3>
-                        <p class="service-desc">
-                            Creating secure REST APIs, robust Express middleware, structural MongoDB databases, and object-oriented Java integrations for complex scalable logic.
-                        </p>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -331,7 +444,13 @@
             <div class="container">
                 <div class="section-header">
                     <span class="sub-heading">Showcasing Selected Works</span>
-                    <h2 class="section-title">Creative Portfolio</h2>
+                    <h2 class="section-title">Creative Portfolio
+                        <span class="tech-list">
+                            <span class="tech-tag tech-react">React</span>
+                            <span class="tech-tag tech-node">Node.js</span>
+                            <span class="tech-tag tech-next">Next.js</span>
+                        </span>
+                    </h2>
                     <div class="header-line"></div>
                 </div>
 
@@ -339,9 +458,11 @@
                     <!-- Project 1: Room Rent App -->
                     <div class="project-card glass-card">
                         <div class="project-image-box">
-                            <img src="assets/project_rental.png" alt="Room Rental Application Preview" class="project-img">
+                            <img src="assets/project_rental.png" alt="Room Rental Application Preview"
+                                class="project-img">
                             <div class="project-overlay">
-                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                                <a href="#" class="project-btn" aria-label="View Details"><i
+                                        class="fa-solid fa-expand"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -352,11 +473,14 @@
                             </div>
                             <h3 class="project-title">Room Rental Application</h3>
                             <p class="project-desc">
-                                A dynamic dashboard to search rooms, manage bookings, and display real-time calendar availability indicating remaining active days.
+                                A dynamic dashboard to search rooms, manage bookings, and display real-time calendar
+                                availability indicating remaining active days.
                             </p>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
-                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i
+                                        class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
                             </div>
                         </div>
                     </div>
@@ -366,7 +490,8 @@
                         <div class="project-image-box">
                             <img src="assets/project_club.png" alt="Student Club Portal Preview" class="project-img">
                             <div class="project-overlay">
-                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                                <a href="#" class="project-btn" aria-label="View Details"><i
+                                        class="fa-solid fa-expand"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -377,11 +502,14 @@
                             </div>
                             <h3 class="project-title">Campus Hub & Hackathon Feed</h3>
                             <p class="project-desc">
-                                A stunning neon-themed dashboard featuring chronological hackathon feeds, college event hubs, registration modules, and payment flows.
+                                A stunning neon-themed dashboard featuring chronological hackathon feeds, college event
+                                hubs, registration modules, and payment flows.
                             </p>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
-                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i
+                                        class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
                             </div>
                         </div>
                     </div>
@@ -389,9 +517,11 @@
                     <!-- Project 3: Zenith X Scrollytelling -->
                     <div class="project-card glass-card">
                         <div class="project-image-box">
-                            <img src="assets/project_zenith.png" alt="Zenith X Scrollytelling Preview" class="project-img">
+                            <img src="assets/project_zenith.png" alt="Zenith X Scrollytelling Preview"
+                                class="project-img">
                             <div class="project-overlay">
-                                <a href="#" class="project-btn" aria-label="View Details"><i class="fa-solid fa-expand"></i></a>
+                                <a href="#" class="project-btn" aria-label="View Details"><i
+                                        class="fa-solid fa-expand"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -402,11 +532,14 @@
                             </div>
                             <h3 class="project-title">Zenith X Audio Scrollytelling</h3>
                             <p class="project-desc">
-                                An Awwwards-style immersive landing page featuring scroll-linked product assemblies, specs visualization, and sleek e-commerce animations.
+                                An Awwwards-style immersive landing page featuring scroll-linked product assemblies,
+                                specs visualization, and sleek e-commerce animations.
                             </p>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Source</a>
-                                <a href="#" class="project-link-btn primary-project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link-btn"><i
+                                        class="fa-brands fa-github"></i> Source</a>
+                                <a href="#" class="project-link-btn primary-project-link"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
                             </div>
                         </div>
                     </div>
@@ -424,42 +557,82 @@
                     <div class="header-line"></div>
                 </div>
 
-                <div class="main-timeline">
-                    <!-- Timeline Card 1 -->
-                    <div class="timeline-card-wrapper left">
-                        <div class="timeline-card glass-card">
-                            <div class="timeline-badge-year">2026</div>
-                            <h3 class="timeline-card-title">Creative Coding Excellence</h3>
-                            <span class="timeline-card-subtitle">Personal Milestones</span>
-                            <p class="timeline-card-desc">
-                                Created Zenith X scrollytelling and campus student systems. Gained deep appreciation for visual UI designs, hardware rendering acceleration, and beautiful animations.
-                            </p>
+                <div class="timeline-layout">
+                    <div class="main-timeline">
+                        <!-- Timeline Card 1 -->
+                        <div class="timeline-card-wrapper left">
+                            <div class="timeline-card glass-card">
+                                <div class="timeline-badge-year">2023</div>
+                                <h3 class="timeline-card-title">BCA Enrollment & OOP Study</h3>
+                                <span class="timeline-card-subtitle">Academic Path</span>
+                                <p class="timeline-card-desc">Started my BCA journey at Integral University, Lucknow. Learned core concepts of OOP using Java, Data Structures and SQL.</p>
+                                <div class="timeline-card-tags">
+                                    <span>Java</span>
+                                    <span>OOP</span>
+                                    <span>SQL</span>
+                                    <span>DSA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Card 2 -->
+                        <div class="timeline-card-wrapper right">
+                            <div class="timeline-card glass-card">
+                                <div class="timeline-badge-year">2024</div>
+                                <h3 class="timeline-card-title">Creative Coding Excellence</h3>
+                                <span class="timeline-card-subtitle">UI/UX & Frontend Development</span>
+                                <p class="timeline-card-desc">Created Zenith X scrolling website and campus systems. Gained skills in UI/UX, animations, and responsive design.</p>
+                                <div class="timeline-card-tags">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JS</span>
+                                    <span>GSAP</span>
+                                    <span>AOS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Card 3 -->
+                        <div class="timeline-card-wrapper left">
+                            <div class="timeline-card glass-card">
+                                <div class="timeline-badge-year">2025</div>
+                                <h3 class="timeline-card-title">Backend Development Journey</h3>
+                                <span class="timeline-card-subtitle">Java & Spring Boot</span>
+                                <p class="timeline-card-desc">Built and launched modular real-time applications like Room Rent and Cricket Score Tracker using Spring Boot, REST APIs and MySQL.</p>
+                                <div class="timeline-card-tags">
+                                    <span>Spring Boot</span>
+                                    <span>REST API</span>
+                                    <span>MySQL</span>
+                                    <span>JWT</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Card 4 -->
+                        <div class="timeline-card-wrapper right">
+                            <div class="timeline-card glass-card current-milestone">
+                                <div class="timeline-badge-year">2026</div>
+                                <h3 class="timeline-card-title">Growing & Exploring</h3>
+                                <span class="timeline-card-subtitle">Cloud, DevOps & Beyond</span>
+                                <p class="timeline-card-desc">Exploring Cloud (AWS), Docker, and DevOps practices. Continuously learning and building to become a better developer.</p>
+                                <div class="timeline-card-tags">
+                                    <span>AWS</span>
+                                    <span>Docker</span>
+                                    <span>Linux</span>
+                                    <span>GitHub</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Footer Card -->
+                        <div class="timeline-card-wrapper center">
+                            <div class="timeline-card glass-card timeline-footer-card">
+                                <h3 class="timeline-card-title">The Journey Continues...</h3>
+                                <p class="timeline-card-desc">Looking for exciting opportunities to create impact.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Timeline Card 2 -->
-                    <div class="timeline-card-wrapper right">
-                        <div class="timeline-card glass-card">
-                            <div class="timeline-badge-year">2025</div>
-                            <h3 class="timeline-card-title">MERN Stack Specialization</h3>
-                            <span class="timeline-card-subtitle">Full Stack Projects</span>
-                            <p class="timeline-card-desc">
-                                Built and launched modular real-time applications such as Room Rent and Cricket Score trackers, validating secure backend Express routing and complex schema architectures.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Card 3 -->
-                    <div class="timeline-card-wrapper left">
-                        <div class="timeline-card glass-card">
-                            <div class="timeline-badge-year">2023</div>
-                            <h3 class="timeline-card-title">BCA Enrollment & OOP Study</h3>
-                            <span class="timeline-card-subtitle">Academic Path</span>
-                            <p class="timeline-card-desc">
-                                Enrolled in Bachelor of Computer Applications program. Mastered core concepts in Object-Oriented Programming using Java, Data Structures, and basic SQL.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -478,15 +651,17 @@
                     <div class="contact-info glass-card">
                         <h3 class="contact-sub-title">Contact Information</h3>
                         <p class="contact-info-desc">
-                            Have an exciting project or job opportunity you'd like to collaborate on? Send me a message! I'm always looking forward to discussing new tech challenges and premium web works.
+                            Have an exciting project or job opportunity you'd like to collaborate on? Send me a message!
+                            I'm always looking forward to discussing new tech challenges and premium web works.
                         </p>
-                        
+
                         <div class="contact-details-list">
                             <div class="contact-detail-item">
                                 <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
                                 <div>
                                     <h4>Email</h4>
-                                    <p><a href="mailto:shamshadansari43984@gmail.com">shamshadansari43984@gmail.com</a></p>
+                                    <p><a href="mailto:shamshadansari43984@gmail.com">shamshadansari43984@gmail.com</a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="contact-detail-item">
@@ -506,8 +681,10 @@
                         </div>
 
                         <div class="contact-social-pills">
-                            <a href="https://github.com" target="_blank" class="contact-social-pill"><i class="fa-brands fa-github"></i> GitHub</a>
-                            <a href="https://linkedin.com" target="_blank" class="contact-social-pill"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+                            <a href="https://github.com" target="_blank" class="contact-social-pill"><i
+                                    class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="https://linkedin.com" target="_blank" class="contact-social-pill"><i
+                                    class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
                         </div>
                     </div>
 
@@ -516,20 +693,22 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                                    <input type="text" id="name" name="name" required placeholder="Enter your name">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Your Email</label>
-                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                    <input type="email" id="email" name="email" required placeholder="Enter your email">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required placeholder="Project Collaboration">
+                                <input type="text" id="subject" name="subject" required
+                                    placeholder="Enter your subject">
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                                <textarea id="message" name="message" rows="5" required
+                                    placeholder="Type your message..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-submit">
                                 <span>Send Message</span> <i class="fa-regular fa-paper-plane"></i>
@@ -561,8 +740,6 @@
         </div>
     </div>
 
-    <button id="view-messages-btn" class="view-messages-btn" title="View saved messages">Messages</button>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
@@ -578,4 +755,5 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
